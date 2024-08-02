@@ -1,0 +1,13 @@
+[12:18 PM] Narasimha (Guest) (Unverified)
+   const userDataObj = { userName :  req.body.userName, role : userObj.role };
+
+                const JWTToken = jwt.sign(userDataObj, 'secret_key',  { expiresIn: '1h' });
+
+                return res.status(200).json({ success: true, token: JWTToken });  
+
+
+app.use(function(req, res, next) {
+  res.status(404);
+  res.json({status:404,title:"Not Found",msg:"Route not found"});
+  next();
+ });
